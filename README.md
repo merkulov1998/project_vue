@@ -1,19 +1,4 @@
-# project_vue
+# Приложение-блог с созданием, удалением и сортировкой постов
+Основные кейсы: CRUD, сортировка, поиск, пагинация, динамическая пагинация
+Также в проекте используются mixins, directives, vuex и composition api
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
