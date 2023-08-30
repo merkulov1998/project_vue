@@ -1,17 +1,31 @@
 <template>
     <form @submit.prevent>
             <h4>Создание поста</h4>
-            <input v-bind:value="post.title" @input= "post.title = $event.target.value" class="input" type="text" placeholder="Название">
-            <input v-bind:value="post.body" @input= "post.body = $event.target.value" class="input" type="text" placeholder="Описание">
-            <button class="btn">Создать</button>
+            <input v-model="post.title" class="input" type="text" placeholder="Название">
+            <input v-model="post.body" class="input" type="text" placeholder="Описание">
+            <my-button class="btn" @click="createPost">Создать</my-button>
         </form>
 </template>
 
 <script>
+import MyButton from "@/components/UI/MyButton";
 export default{
+    components: {
+        MyButton
+    },
     data(){
         return {
             post: {
+                title: '',
+                body: ''
+            }
+        }
+    },
+    methods: {
+        createPost(){
+            this.post.id = Date.now();
+            this.$emit('create', this.post)
+            this.post = {
                 title: '',
                 body: ''
             }
@@ -31,12 +45,5 @@ form{
     padding: 10px 15px;
     margin-top: 15px;
 }
-.btn{
-    margin-top: 15px;
-    align-self: flex-end;
-    padding: 10px 15px;
-    background: none;
-    color: teal;
-    border: 1px solid teal;
-}
+
 </style>
